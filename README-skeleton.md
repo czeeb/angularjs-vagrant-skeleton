@@ -1,0 +1,2 @@
+# AngularJS Vagrant Skeleton
+
