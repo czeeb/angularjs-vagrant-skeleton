@@ -183,3 +183,16 @@ package { $node_modules:
   provider => 'npm',
   require => Class['nodejs']
 }
+
+# requirement of phantomjs
+package { 'libfontconfig':
+  ensure => installed
+}
+
+file { '/usr/bin/phantomjs':
+  ensure => link,
+  mode => 0755,
+  replace => true,
+  source => '/usr/lib/node_modules/phantomjs/lib/phantom/bin/phantomjs'
+} <- Package['phantomjs']
+
